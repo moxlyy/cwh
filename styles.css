@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: #0f0f14;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* animated gradient background */
+.background {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, #1a1a2e, transparent),
+              radial-gradient(circle at 70% 70%, #16213e, transparent);
+  animation: moveBg 15s infinite alternate ease-in-out;
+  z-index: -1;
+}
+
+@keyframes moveBg {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-10%, -10%); }
+}
+
+main {
+  text-align: center;
+  width: 100%;
+}
+
+/* title glow */
+.title {
+  font-size: 4rem;
+  margin-bottom: 40px;
+  letter-spacing: 4px;
+  color: #FFFFFF;
+  text-shadow: 0 0 10px #6a8cff, 0 0 20px #6a8cff;
+}
+
+/* card */
+.card {
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* hover glow */
+.card:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: #6a8cff;
+  box-shadow: 0 0 20px rgba(106, 140, 255, 0.4);
+}
+
+/* ripple effect */
+.card::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: rgba(106, 140, 255, 0.3);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.4s;
+}
+
+.card:active::after {
+  width: 200%;
+  height: 200%;
+}
+
+.links {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  width: min(900px, 90vw);
+  margin: 0 auto;
+  perspective: 1000px;
+}
