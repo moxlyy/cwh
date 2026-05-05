@@ -6,3 +6,14 @@ document.addEventListener("mousemove", (e) => {
     document.querySelector(".links").style.transform =
         `rotateY(${x}deg) rotateX(${-y}deg)`;
 });
+
+// Disclaimer popup
+window.addEventListener('load', () => {
+    const popup = document.getElementById('disclaimer-popup');
+    popup.style.display = 'flex';
+});
+
+document.getElementById('close-popup').addEventListener('click', () => {
+    const popup = document.getElementById('disclaimer-popup');
+    popup.style.display = 'none';
+});
